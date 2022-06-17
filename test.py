@@ -1,14 +1,13 @@
-#Dependencies
-#pip install torch==1.8.2 torchvision==0.9.2 torchaudio===0.8.2 --extra-index-url https://download.pytorch.org/whl/lts/1.8/cpu
-#cd yolov5 & pip install -r requirements.txt
-
 import torch
 import numpy as np
 import cv2
 
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp14/weights/last.pt', force_reload=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='model/weights/last.pt', force_reload=True)
 
+#Capture OBS Virtual Camera
 cap = cv2.VideoCapture(1)
+
+#Detectiuon Loop
 while cap.isOpened():
     ret, frame = cap.read()
     
